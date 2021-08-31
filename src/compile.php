@@ -9,6 +9,12 @@ Ecclesiastes 11:6
 Rather do one thing with excellence than ten well.
 */
 
+# Create build directory if it doesn't exist
+if(!is_dir('../build/')) {
+  mkdir('../build/');
+}
+
+
 // Copy favicon
 if (file_exists('../src/favicon.ico')) {
 	copy('../src/favicon.ico', '../build/favicon.ico');
