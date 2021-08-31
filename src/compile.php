@@ -14,7 +14,6 @@ if(!is_dir('../build/')) {
   mkdir('../build/');
 }
 
-
 // Copy favicon
 if (file_exists('../src/favicon.ico')) {
 	copy('../src/favicon.ico', '../build/favicon.ico');
