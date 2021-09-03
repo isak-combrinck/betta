@@ -164,7 +164,7 @@ function c_compile_page($html, $php) {
 	// Output contains path
 	if ($php != NULL) {
 		$settings = set_default_settings($settings, ['php_scripts', 'content'], [$php, file_get_contents($html)]);
-		$output = '../' . substr($php, 13); # offset is offset to end of pages of path, e.g. for ../src/pages/standort/index.html it is 13
+		$output = '../build' . substr($php, 12); # offset is offset to end of pages of path, e.g. for ../src/pages/standort/index.html it is 13
 	} else {
 		$settings = set_default_settings($settings, ['content'], [file_get_contents($html)]);
 		$output = '../build/' . substr($html, 13); # BUG, fix offset being hardcoded
@@ -180,8 +180,8 @@ function c_compile_page($html, $php) {
 	// output ../create
 	if (strchr($path, "/")) { # Check if path contains a /
 		if(!is_dir($path)) {
-			#exit($path); # is this right?
-			mkdir($path);
+			//exit($path); # is this right?
+			mkdir($path );
 		}
 	}
 
