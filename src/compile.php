@@ -181,7 +181,7 @@ function c_compile_page($html, $php) {
 	if (strchr($path, "/")) { # Check if path contains a /
 		if(!is_dir($path)) {
 			//exit($path); # is this right?
-			mkdir($path );
+			mkdir($path);
 		}
 	}
 
