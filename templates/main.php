@@ -45,7 +45,7 @@ if ($settings['php_scripts'] != null) {
         </style>
 	</head>
 
-	<body class="dark">
+	<body>
 		<?php
     if ($settings['header_show']) {
 			include ('../src/page_elements/'.$settings['header_file']);
