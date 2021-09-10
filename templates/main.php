@@ -75,6 +75,10 @@ if ($settings['php_scripts'] != null) {
 
 		<?php echo $settings['script_imports']?>
 
+    
+    <div id="loader">
+      <div id="spinner"></div>
+    </div>
 	</body>
 </html>
 
