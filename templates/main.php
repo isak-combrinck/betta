@@ -49,10 +49,15 @@ if ($settings['php_scripts'] != null) {
     <script>
       if (localStorage.getItem('dark') == 'true') {
         document.body.classList.add('dark');
-      } else {
-        document.body.classList.remove('dark');
       }
     </script>
+
+    <button id="betta_theme-button" class="icon-button simple">
+      <span class="icon">
+        <img id="betta_theme-dark-icon" src="/icons/dark_mode.svg" alt="Dark mode"/>
+        <img id="betta_theme-light-icon" src="/icons/light_mode_white.svg" alt="Light mode"/>
+      </span>
+    </button>
 
 		<?php
     if ($settings['header_show']) {
@@ -65,10 +70,6 @@ if ($settings['php_scripts'] != null) {
 			include ('../src/page_elements/menu.html');
 		}
     ?>
-
-    <button id="betta_theme-button" class="icon-button simple">
-      <span class="icon"><img src="/icons/dark_mode.svg" alt="Switch theme"/></span>
-    </button>
 
 		<main>
         <?php
