@@ -46,6 +46,14 @@ if ($settings['php_scripts'] != null) {
 	</head>
 
 	<body>
+    <script>
+      if (localStorage.getItem('dark') == 'true') {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
+    </script>
+
 		<?php
     if ($settings['header_show']) {
 			include ('../src/page_elements/'.$settings['header_file']);
