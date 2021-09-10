@@ -57,6 +57,11 @@ if ($settings['php_scripts'] != null) {
 			include ('../src/page_elements/menu.html');
 		}
     ?>
+
+    <button id="betta_theme-button" class="icon-button simple">
+      <span class="icon"><img src="/icons/dark_mode.svg" alt="Switch theme"/></span>
+    </button>
+
 		<main>
         <?php
         if ($settings['parse'] != NULL) {
