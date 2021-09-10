@@ -12,17 +12,24 @@ if ($settings['php_scripts'] != null) {
 		<meta charset="UTF-8">
 		
 		<title><?php echo $settings['title_before'] . $settings['title'] . $settings['title_after']?></title>
-        <meta name="description" content="<?php echo $settings['meta_description']?>"/>
+    <meta name="description" content="<?php echo $settings['meta_description']?>"/>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
 
-        <?php echo $settings['link_stylesheets']?>
-		<link rel='shortcut icon' type='image/x-icon' href='/favicon.png' />
+    <?php echo $settings['link_stylesheets']?>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#212121">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
 
         <style>
             body, textarea, option, input, select, button {
