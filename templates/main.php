@@ -23,6 +23,8 @@ if ($settings['php_scripts'] != null) {
 
     <?php echo $settings['link_stylesheets']?>
 
+    <meta name="color-scheme" content="dark light">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -43,7 +45,7 @@ if ($settings['php_scripts'] != null) {
         </style>
 	</head>
 
-	<body>
+	<body class="dark">
 		<?php
     if ($settings['header_show']) {
 			include ('../src/page_elements/'.$settings['header_file']);
