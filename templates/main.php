@@ -52,13 +52,6 @@ if ($settings['php_scripts'] != null) {
       }
     </script>
 
-    <button id="betta_theme-button" class="icon-button simple">
-      <span class="icon">
-        <img id="betta_theme-dark-icon" src="/icons/dark_mode.svg" alt="Dark mode"/>
-        <img id="betta_theme-light-icon" src="/icons/light_mode_white.svg" alt="Light mode"/>
-      </span>
-    </button>
-
 		<?php
     if ($settings['header_show']) {
 			include ('../src/page_elements/'.$settings['header_file']);
