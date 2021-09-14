@@ -36,7 +36,6 @@ if ($settings['php_scripts'] != null) {
         <style>
             body, textarea, option, input, select, button {
                 font-family: 'Lato', sans-serif;
-                font-display: optional;
             }
 
             header.hero {
