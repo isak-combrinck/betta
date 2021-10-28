@@ -18,27 +18,28 @@ ob_start();
 </div>
 
 <div id="gallery">
-    <?php
-    $image_number = 1;
-    
-    if (isset($images) && is_array($images)) {
-        foreach ($images as $image) {
-            echo '
-            <div class="gallery-item">
-                <div class="content">
-                    <picture id="photo-' . $image_number . '" class="photo clickable">
-                        <source srcset="' . $image . '.webp' . '" type="image/webp">
-                        <img src="' . $image . '.jpg' . '" loading="lazy">
-                    </picture>
-                    <div class="click-plane"></div>
-                </div>
-            </div>
-            ';
-    
-            ++$image_number;
-        }
+  <?php
+  $image_number = 1;
+  
+  if (isset($images) && is_array($images)) {
+    foreach ($images as $image) {
+      $image = str_replace('build/', '', $image);
+      echo '
+      <div class="gallery-item">
+          <div class="content">
+              <picture id="photo-' . $image_number . '" class="photo clickable">
+                  <source srcset="' . $image . '.webp' . '" type="image/webp">
+                  <img src="' . $image . '.jpg' . '" loading="lazy">
+              </picture>
+              <div class="click-plane"></div>
+          </div>
+      </div>
+      ';
+
+      ++$image_number;
     }
-    ?>
+  }
+  ?>
 </div>
 
 <?php
