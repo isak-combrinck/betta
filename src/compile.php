@@ -213,10 +213,9 @@ function c_compile() {
 	foreach(new RecursiveIteratorIterator($iterator) as $file) {
 		$pathinfo = pathinfo(dirname($file) . '/' . basename($file));
 
-    # BUG line 190 doesn't work on windows
 		if ($pathinfo['dirname'] != '../src/pages') { # Make dir for pages
 			if(!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
-				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']));
+				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname'])); # Doesn't work on Windows
 			}
 		}
 	
