@@ -114,7 +114,7 @@ $script_imports;
 function c_compile_scripts() {
 	// Compiles js scripts for every page
 
-	// Generate code for user provided scripts
+	// Generate code custom scripts
 	function c_set_scripts($exceptions) {
 
 		// Get external scripts from settings
