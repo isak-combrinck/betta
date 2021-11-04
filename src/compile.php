@@ -10,7 +10,7 @@ Rather do one thing with excellence than ten well.
 */
 
 # Create build directory if it doesn't exist
-if(!is_dir('../build/')) {
+if (!is_dir('../build/')) {
   mkdir('../build/');
 }
 
@@ -30,7 +30,7 @@ if (file_exists('../src/favicon.ico')) {
 
 function c_copy_files($type, $dir) {
 
-	if(!is_dir('../build/'.$type.'/')) {
+	if (!is_dir('../build/'.$type.'/')) {
 		mkdir('../build/'.$type.'/');
 	}
 
@@ -60,7 +60,7 @@ function c_copy_files($type, $dir) {
 
 function c_copy_dir($dir) {
 
-	if(!is_dir('../build/'.$dir.'/')) {
+	if (!is_dir('../build/'.$dir.'/')) {
 		mkdir('../build/'.$dir.'/');
 	}
 
@@ -179,7 +179,7 @@ function c_compile_page($html, $php) {
 	// input e.g. ../create/index.html
 	// output ../create
 	if (strchr($path, "/")) { # Check if path contains a /
-		if(!is_dir($path)) {
+		if (!is_dir($path)) {
 			//exit($path); # is this right?
 			mkdir($path);
 		}
@@ -214,7 +214,7 @@ function c_compile() {
 		$pathinfo = pathinfo(dirname($file) . '/' . basename($file));
 
 		if ($pathinfo['dirname'] != '../src/pages') { # Make dir for pages
-			if(!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
+			if (!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
 				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname'])); # Doesn't work on Windows
 			}
 		}
@@ -231,7 +231,7 @@ function c_compile() {
 			}
 		} else if ($file->getExtension() == 'pdf') { // Copy pdf files, if they exist
 
-			if(!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
+			if (!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
 				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']));
 			}
 
