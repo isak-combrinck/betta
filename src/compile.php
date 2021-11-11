@@ -14,11 +14,9 @@ if (!is_dir('../build/')) {
   mkdir('../build/');
 }
 
-// Copy favicon
-if (file_exists('../src/favicon.ico')) {
-	copy('../src/favicon.ico', '../build/favicon.ico');
-} else if (file_exists('../src/favicon.png')) {
-	copy('../src/favicon.png', '../build/favicon.png');
+// Copy .htaccess if exists
+if (file_exists('../src/.htaccess')) {
+	copy('../src/.htaccess', '../build/.htaccess');
 }
 
 # Copy files from a directory to a production directory
