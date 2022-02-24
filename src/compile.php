@@ -227,8 +227,8 @@ function c_compile() {
 			} else {
 				c_compile_page($file, NULL);
 			}
-		} else if ($file->getExtension() == 'pdf') { // Copy pdf files, if they exist
-
+		} else if ($file->getExtension() == 'pdf' || $file->getExtension() == 'docx') {
+      # Copy pdf files and word documents, if they exist
 			if (!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
 				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']));
 			}
