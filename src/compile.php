@@ -118,7 +118,7 @@ function c_compile_scripts() {
 		// Get external scripts from settings
 		$c_scripts = $GLOBALS['s_external_scripts'];
 
-		$c_scripts = array_merge($c_scripts, c_copy_files('js', 'src/libs/js/'));
+		$c_scripts = array_merge($c_scripts, c_copy_files('js', 'libs/js/'));
 		$c_scripts = array_merge($c_scripts, c_copy_files('js', '../src/js/'));
 
 		$output = '';
