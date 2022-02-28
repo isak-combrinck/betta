@@ -1,0 +1,9 @@
+[submodule "libs/css/betta.css"]
+	path = libs/css/betta.css
+	url = git@github.com:isak-combrinck/betta.css.git
+[submodule "libs/js/betta.js"]
+	path = libs/js/betta.js
+	url = git@github.com:isak-combrinck/betta.js.git
+[submodule "libs/icons/betta.icons"]
+	path = libs/icons/betta.icons
+	url = git@github.com:isak-combrinck/betta.icons.git

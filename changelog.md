@@ -13,4 +13,9 @@ Labels used are:
 `Fixed` for any bug fixes.
 `Security` in case of vulnerabilities.
 
-## [Unreleased]
+## [Next]
+
+### Added
+- betta.css library as submodule
+- betta.js library as submodule
+- betta.icons library as submodule
