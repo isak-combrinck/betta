@@ -305,7 +305,6 @@ function compile_as_gallery($path) {
 
 # Resize an image so that the longest side the the length passed
 function l_resize_image ($image, $length) {
-	$ratio;
 	$width = imagesx($image);
 	$height = imagesy($image);
 
@@ -315,16 +314,16 @@ function l_resize_image ($image, $length) {
             return $image;
         }
 
-		$ratio = floor($width / $height); # floor is needed to make sure $ratio is an int
-		$image = imagescale($image, $length, $length / $ratio);
+		# floor is needed to make sure ratio is an int
+		$image = imagescale($image, $length, floor($length / ($width / $height)));
 	} else {
         # Don't resize if already smaller
         if ($length > $height) {
             return $image;
         }
         
-		$ratio = floor($height / $width); # floor is needed to make sure $ratio is an int
-		$image = imagescale($image, $length / $ratio, $length);
+		# floor is needed to make sure ratio is an int
+		$image = imagescale($image, floor($length / ($width / $height)), $length);
 	}
 
 	return $image;
