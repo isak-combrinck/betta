@@ -315,7 +315,7 @@ function l_resize_image ($image, $length) {
             return $image;
         }
 
-		$ratio = $width / $height;
+		$ratio = floor($width / $height); # floor is needed to make sure $ratio is an int
 		$image = imagescale($image, $length, $length / $ratio);
 	} else {
         # Don't resize if already smaller
@@ -323,7 +323,7 @@ function l_resize_image ($image, $length) {
             return $image;
         }
         
-		$ratio = $height / $width;
+		$ratio = floor($height / $width); # floor is needed to make sure $ratio is an int
 		$image = imagescale($image, $length / $ratio, $length);
 	}
 
