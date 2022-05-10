@@ -323,7 +323,7 @@ function l_resize_image ($image, $length) {
         }
         
 		# floor is needed to make sure ratio is an int
-		$image = imagescale($image, floor($length / ($width / $height)), $length);
+		$image = imagescale($image, floor($length / ($height / $width)), $length);
 	}
 
 	return $image;
