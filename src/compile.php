@@ -19,6 +19,16 @@ if (file_exists('../src/.htaccess')) {
 	copy('../src/.htaccess', '../build/.htaccess');
 }
 
+// Copy robots.txt if exists
+if (file_exists('../src/robots.txt')) {
+	copy('../src/robots.txt', '../build/robots.txt');
+}
+
+// Copy sitemap.xml if exists
+if (file_exists('../src/sitemap.xml')) {
+	copy('../src/sitemap.xml', '../build/sitemap.xml');
+}
+
 # Copy files from a directory to a production directory
 # and add them to an array. Overwrites files with the
 # same name. Used for js and css files.
