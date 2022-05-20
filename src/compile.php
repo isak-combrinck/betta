@@ -237,8 +237,8 @@ function c_compile() {
 			} else {
 				c_compile_page($file, NULL);
 			}
-		} else if ($file->getExtension() == 'pdf') { // Copy pdf files, if they exist
-
+		} else if ($file->getExtension() == 'pdf' || $file->getExtension() == 'docx') {
+      # Copy pdf files and word documents, if they exist
 			if (!is_dir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']))) {
 				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname']));
 			}
@@ -315,7 +315,6 @@ function compile_as_gallery($path) {
 
 # Resize an image so that the longest side the the length passed
 function l_resize_image ($image, $length) {
-	$ratio;
 	$width = imagesx($image);
 	$height = imagesy($image);
 
@@ -325,16 +324,16 @@ function l_resize_image ($image, $length) {
             return $image;
         }
 
-		$ratio = $width / $height;
-		$image = imagescale($image, $length, $length / $ratio);
+		# floor is needed to make sure ratio is an int
+		$image = imagescale($image, $length, floor($length / ($width / $height)));
 	} else {
         # Don't resize if already smaller
         if ($length > $height) {
             return $image;
         }
         
-		$ratio = $height / $width;
-		$image = imagescale($image, $length / $ratio, $length);
+		# floor is needed to make sure ratio is an int
+		$image = imagescale($image, floor($length / ($height / $width)), $length);
 	}
 
 	return $image;
