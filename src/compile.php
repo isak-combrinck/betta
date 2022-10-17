@@ -287,9 +287,16 @@ function compile_as_gallery($path) {
             continue;
         }
 
-        # Convert to webp and write to disk
-        if (!imagewebp($image, $image_pathname . '.webp', 75)) {
+        # Check if a webp version of image exists
+        # !!!Don't touch this code if you don't know what you're doing!!!
+        if (file_exists($fileinfo->getPath() . '/' . $fileinfo->getBasename('.jpg') . '.webp')) {
+          # Copy webp version of image to build directory
+          copy($fileinfo->getPath() . '/' . $fileinfo->getBasename('.jpg') . '.webp', $image_pathname . '.webp');
+        } else {
+          # Convert to webp and write to disk
+          if (!imagewebp($image, $image_pathname . '.webp', 75)) {
             continue;
+          }
         }
 
         # Free up memory
