@@ -33,7 +33,7 @@ if ($settings['php_scripts'] != null) {
     <meta name="theme-color" content="#ffffff">
 	</head>
 
-	<body class="<?php echo $settings['body_classes']?>">
+	<body class="<?php echo isset($settings['body_classes']) ? $settings['body_classes']: '' ?>">
     <script>
       if (localStorage.getItem('dark') == 'true') {
         document.body.classList.add('dark');
