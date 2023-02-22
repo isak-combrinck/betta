@@ -251,15 +251,12 @@ function c_compile() {
 # Compile as Gallery (requires the betta.css and betta.js libraries)
 # This option compiles the HTML needed to display the images in a folder as a gallery
 # $path is the path to the folder containing the images in .jpg format
+# We expect the images to hosted on a different website (static hosting)
+# and thus the path should be something like ../../static.test.com/images/gallery-1/
+# $path_prefix defines a prefix to add to the path when generating the HTML
+# This prefix defaults to https://
 # HTML is inserted where the function is called
-function compile_as_gallery($path) {
-    # Don't execute this function if quick compile is turned on
-    if (isset($GLOBALS['quick_compile']) && $GLOBALS['quick_compile'] === true ) {
-        return null;
-    }
-
-    $path = '../src/' . $path;
-
+function compile_as_gallery($path, $path_prefix = 'https://') {
     $images;
 
     # Stop execution if path passed does not point to a directory
@@ -270,78 +267,18 @@ function compile_as_gallery($path) {
     $iterator = new DirectoryIterator($path);
         
     foreach ($iterator as $fileinfo) {
-        # We only support images with the .jpg extension
-        if (!($fileinfo->isFile() && $fileinfo->getExtension() === 'jpg')) {
-            continue; # File not supported
-        }
-
-        # Parse image into variable, removes compression
-        $image = imagecreatefromjpeg($fileinfo->getPathname());
-
-        # Resize image if longest side is more than 2048 pixels wide
-        $image = l_resize_image($image, 2048);
-
-        $image_path = str_replace('/src/', '/build/', $fileinfo->getPath());
-
-        # Create all missing folder in image path
-        if (!is_dir($image_path)) {
-          mkdir($image_path, 0777, true);
+      # We only support images with the .jpg extension
+      if (!($fileinfo->isFile() && $fileinfo->getExtension() === 'jpg')) {
+        continue; # File not supported
       }
 
-        $image_pathname = $image_path . '/' . $fileinfo->getBasename('.jpg');
+      # Remove relatives from path
+      $path = str_replace('../', '', $path);
 
-        //exit ($image_path . ' image pathname:' . $image_pathname);
-
-        # Write resized version of jpg to disk
-        if (!imagejpeg($image, $image_pathname . '.jpg', 75)) {
-            continue;
-        }
-
-        # Check if a webp version of image exists
-        # !!!Don't touch this code if you don't know what you're doing!!!
-        if (file_exists($fileinfo->getPath() . '/' . $fileinfo->getBasename('.jpg') . '.webp')) {
-          # Copy webp version of image to build directory
-          copy($fileinfo->getPath() . '/' . $fileinfo->getBasename('.jpg') . '.webp', $image_pathname . '.webp');
-        } else {
-          # Convert to webp and write to disk
-          if (!imagewebp($image, $image_pathname . '.webp', 75)) {
-            continue;
-          }
-        }
-
-        # Free up memory
-        imagedestroy($image);
-
-        $images[] = substr($image_path, 2) . '/' . $fileinfo->getBasename('.jpg');
+      $images[] = $path_prefix . $path . '/' . $fileinfo->getBasename('.jpg');
     }
 
     natcasesort($images);
 
     include ('templates/gallery.php');
-}
-
-# Resize an image so that the longest side the the length passed
-function l_resize_image ($image, $length) {
-	$width = imagesx($image);
-	$height = imagesy($image);
-
-	if ($width > $height) {
-        # Don't resize if already smaller
-        if ($length > $width) {
-            return $image;
-        }
-
-		# floor is needed to make sure ratio is an int
-		$image = imagescale($image, $length, floor($length / ($width / $height)));
-	} else {
-        # Don't resize if already smaller
-        if ($length > $height) {
-            return $image;
-        }
-        
-		# floor is needed to make sure ratio is an int
-		$image = imagescale($image, floor($length / ($height / $width)), $length);
-	}
-
-	return $image;
 }

@@ -7,14 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   ini_set('max_execution_time', 0);
 
-  //exit ($_POST['compile-mode']);
-
-  if ($_POST['compile-mode'] === 'quick') {
-    $GLOBALS['quick_compile'] = true;
-  } else {
-    $GLOBALS['quick_compile'] = false;
-  }
-
 	c_compile();
 
   ini_set('max_execution_time', 30);
@@ -30,9 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round">
-		
 	</head>
 
 	<style>
@@ -121,20 +110,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<article class="article center">
 				<div>
 					<br>
-					<p><span class="material-icons-round">sentiment_satisfied_alt</span></p>
+					<h1>Betta</h1>
 				</div>
 				<form method="post">
           <input type="hidden" name="compile-mode" value="complete">
 					<button class="button-center">Compile</button>
 				</form>
-        <form method="post">
-          <input type="hidden" name="compile-mode" value="quick">
-					<button class="button-center">Quick Compile</button>
-				</form>
 			</article>
       <article class="article center">
         <p>
-          If you want to only reload the page to compile use <a href="./quick_compile.php">Quick Compile</a> for a fast compile time. Use <a href="./auto_compile.php">Auto Compile</a> for complete compilation.
+          If you want to only reload the page to compile use the <a href="./compile.php">compile page</a>.
         </p>
 			</article>
 		</div>
