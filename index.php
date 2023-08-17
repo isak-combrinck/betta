@@ -1,18 +1,12 @@
 <?php
+	include ('../src/settings.php');  # Include site specific settings
+	include ('src/compile.php');      # Include script to do compiling
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	// call compile scripts, do da hard work
-	include ('../src/settings.php');
-	include ('src/compile.php');
-
-  ini_set('max_execution_time', 0);
-
+  ini_set('max_execution_time', 0); # Disable max execution time
 	c_compile();
-
-  ini_set('max_execution_time', 30);
-}
-
+  ini_set('max_execution_time', 30); # Reset max execution time to default
 ?>
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -27,73 +21,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<style>
 		body {
 			margin: 0;
+      font-family: monospace, sans-serif;
 		}
 
-		div, input, button, article, section, nav {
+		div, article {
 			box-sizing: border-box;
 		}
 
-		i {
-			vertical-align: top;
-		}
-
-		i, img {
-			-webkit-user-select: none;
+    img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      border: 3px solid #000000;
+      animation: 1.2s ease-out 0s 1 load;
+      -webkit-user-select: none;
 			-moz-user-select: none;
 			-ms-user-select: none;
 			user-select: none;
-		}
-
-		nav ul {
-			padding: 0;
-			margin: 0;
-		}
-
-		nav ul li {
-			list-style: none;
-		}
-
-		button {
-			vertical-align: top;
-			text-align: center;
-			border: none;
-			outline: none;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			padding: 0.25rem 1rem;
-			border-radius: 1rem;
-			background: #fff;
-			transition: 0.1s;
-			box-shadow: 0 0 2px 0 #212121;
-		}
-
-		button:hover:enabled {
-			cursor: pointer;
-			background: #eee;
-		}
-
-		button:active:enabled {
-			background: #e5e5e5;
-		}
+    }
 
 		/*---------------------------------------
 			Typography
 		---------------------------------------*/
-		a
-		{
-			text-decoration: none;
-		}
-
-		strong {
-			font-weight: 600;
-		}
-
     p {
       max-width: 30rem;
       margin-left: auto;
-
       margin-right: auto;
     }
 
@@ -103,24 +55,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		.center {
 			text-align: center;
 		}
+
+    /*---------------------------------------
+			Animation
+		---------------------------------------*/
+    @keyframes load {
+      0% {
+      transform: rotateZ(0deg);
+      opacity: 0;
+      }
+      40% {
+        transform: rotateZ(20deg);
+        opacity: 0.2;
+      }
+      80% {
+        transform: rotateZ(-15deg);
+        opacity: 0.6;
+      }
+      100% {
+        transform: rotateZ(0deg);
+      }
+    }
 	</style>
 
 	<body>
-		<div class="page center">
-			<article class="article center">
+		<div class="center">
+			<article class="center">
 				<div>
+          <br>
+          <img src="src/betta.png" alt="">
 					<br>
 					<h1>Betta</h1>
+          <p>
+          Simply reload the page to compile.
+          </p>
 				</div>
-				<form method="post">
-          <input type="hidden" name="compile-mode" value="complete">
-					<button class="button-center">Compile</button>
-				</form>
-			</article>
-      <article class="article center">
-        <p>
-          If you want to only reload the page to compile use the <a href="./compile.php">compile page</a>.
-        </p>
 			</article>
 		</div>
 	</body>
