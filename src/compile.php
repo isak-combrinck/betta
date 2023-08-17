@@ -64,15 +64,15 @@ function c_copy_files($type, $dir) {
 
 # Copy a directory and all its files from src to build
 # $dir the directory to copy
-# $dest the location to copy the directory to
+# $from the location to copy the directory from
 
-function c_copy_dir($dir) {
+function c_copy_dir($dir, $from = "../src") {
 
 	if (!is_dir('../build/'.$dir.'/')) {
 		mkdir('../build/'.$dir.'/');
 	}
 
-	$files = glob('../src/'.$dir.'/' . '*.*', GLOB_BRACE);
+	$files = glob($from.'/'.$dir.'/' . '*.*', GLOB_BRACE);
 	foreach ($files as $file) {
 		if (is_dir($file)) {
       exit($dir . '/' . basename($file));
@@ -213,6 +213,8 @@ function c_compile() {
   foreach($settings['copy'] as $dir) {
     c_copy_dir($dir);
   }
+
+  c_copy_dir("icons", "libs/icons/betta.icons"); # copy default icons over
 	
 	// Run appropriate compile scripts for every page found in the ../src/pages directory
 	$iterator = new RecursiveDirectoryIterator("../src/pages/");
