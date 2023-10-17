@@ -213,8 +213,6 @@ function c_compile() {
   foreach($settings['copy'] as $dir) {
     c_copy_dir($dir);
   }
-
-  c_copy_dir("icons", "libs/icons/betta.icons"); # copy default icons over
 	
 	// Run appropriate compile scripts for every page found in the ../src/pages directory
 	$iterator = new RecursiveDirectoryIterator("../src/pages/");
