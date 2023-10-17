@@ -1,14 +1,23 @@
 # Betta
 
-_Your friendly neighborhood compiler._
+*Your friendly neighborhood compiler.*
 
 Helps you code websites efficiently.
 
 ## Version 0.0.1
 
-Betta is currently under early development. Use in production at your own risk.
+Betta is currently under early development.
+- Use in production at your own risk.
+- No documentation is provided at the moment.
 
-No documentation is provided at the moment.
+### Websites using Betta
+
+- [Stiftung Grosshaus](https://www.grosshaus.ch/)
+- [Living Decor](https://www.livingdecor.org/)
+- [Combrinck Dev.](https://combrinck.dev/)
+- [Café Friedegg](https://friedegg.ch/)
+
+
 
 ## Usage
 
