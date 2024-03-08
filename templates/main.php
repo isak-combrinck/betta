@@ -10,15 +10,15 @@ if ($settings['php_scripts'] != null) {
 <html lang="<?php echo $settings['lang']?>">
 	<head>
 		<meta charset="UTF-8">
-		
+
 		<title><?php echo $settings['title_before'] . $settings['title'] . $settings['title_after']?></title>
     <meta name="description" content="<?php echo $settings['meta_description']?>"/>
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@;0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
     <?php echo $settings['link_stylesheets']?>
 
@@ -44,7 +44,7 @@ if ($settings['php_scripts'] != null) {
     if ($settings['header_show']) {
 			include ('../src/page_elements/'.$settings['header_file']);
 		}
-        
+
     if ($settings['back_button_show']) {
 			include ('../src/page_elements/back-button.html');
 		} elseif ($settings['menu_show']) {
@@ -70,7 +70,7 @@ if ($settings['php_scripts'] != null) {
 
 		<?php echo $settings['script_imports']?>
 
-    
+
     <div id="loader">
       <div id="spinner"></div>
     </div>
