@@ -92,7 +92,7 @@ function c_compile_stylesheets() {
 		// Get external stylesheets from settings
 		$c_stylesheets = $GLOBALS['s_external_stylesheets'];
 
-		$c_stylesheets = array_merge($c_stylesheets, c_copy_files('css', 'libs/css/'));
+		#$c_stylesheets = array_merge($c_stylesheets, c_copy_files('css', 'libs/css/'));
 		$c_stylesheets = array_merge($c_stylesheets, c_copy_files('css', '../src/css/'));
 
 		$output = '';
@@ -213,13 +213,9 @@ function c_compile() {
   foreach($settings['copy'] as $dir) {
     c_copy_dir($dir);
   }
-<<<<<<< Updated upstream
 
-=======
+  #c_copy_dir("icons", "libs/icons/betta.icons"); # copy default icons over
 
-  c_copy_dir("icons", "libs/icons/betta.icons"); # copy default icons over
-
->>>>>>> Stashed changes
 	// Run appropriate compile scripts for every page found in the ../src/pages directory
 	$iterator = new RecursiveDirectoryIterator("../src/pages/");
 
