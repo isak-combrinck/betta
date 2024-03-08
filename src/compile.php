@@ -97,7 +97,7 @@ function c_compile_stylesheets() {
 
 		$output = '';
 		$i = 0;
-		
+
 		foreach ($c_stylesheets as $stylesheet) {
 			// if listed in exceptions: don't include
 			if (!empty($exceptions) && in_array($stylesheet, $exceptions)) {
@@ -111,7 +111,7 @@ function c_compile_stylesheets() {
 				$i++;
 			}
 		}
-		
+
 		return $output;
 	}
 
@@ -128,12 +128,12 @@ function c_compile_scripts() {
 		// Get external scripts from settings
 		$c_scripts = $GLOBALS['s_external_scripts'];
 
-		$c_scripts = array_merge($c_scripts, c_copy_files('js', 'libs/js/'));
+		#$c_scripts = array_merge($c_scripts, c_copy_files('js', 'libs/js/'));
 		$c_scripts = array_merge($c_scripts, c_copy_files('js', '../src/js/'));
 
 		$output = '';
 		$i = 0;
-		
+
 		foreach ($c_scripts as $script) {
 			// if listed in exceptions: don't include
 			if (!empty($exceptions) && in_array($script, $exceptions)) {
@@ -147,7 +147,7 @@ function c_compile_scripts() {
 				$i++;
 			}
 		}
-		
+
 		return $output;
 	}
 
@@ -177,9 +177,9 @@ function c_compile_page($html, $php) {
 		$settings = set_default_settings($settings, ['content'], [file_get_contents($html)]);
 		$output = '../build/' . substr($html, 13); # BUG, fix offset being hardcoded
 	}
-    
+
 	$output = str_replace("\\", "/", $output);
-	
+
 	// Extract folder from full path
 	$path = substr($output, 0, (strlen($output) - strlen(strrchr($output, "/"))));
 
@@ -209,11 +209,17 @@ function c_compile() {
 	c_compile_scripts();
 
   $settings = default_settings();
-  
+
   foreach($settings['copy'] as $dir) {
     c_copy_dir($dir);
   }
-	
+<<<<<<< Updated upstream
+
+=======
+
+  c_copy_dir("icons", "libs/icons/betta.icons"); # copy default icons over
+
+>>>>>>> Stashed changes
 	// Run appropriate compile scripts for every page found in the ../src/pages directory
 	$iterator = new RecursiveDirectoryIterator("../src/pages/");
 
@@ -226,7 +232,7 @@ function c_compile() {
 				mkdir('../' . str_replace('../src/pages/', 'build/', $pathinfo['dirname'])); # Doesn't work on Windows
 			}
 		}
-	
+
 		if ($file->getExtension() == 'html') {
 
 			// Check for php file with same name and location
@@ -265,7 +271,7 @@ function compile_as_gallery($path, $path_prefix = 'https://') {
     }
 
     $iterator = new DirectoryIterator($path);
-        
+
     foreach ($iterator as $fileinfo) {
       # We only support images with the .jpg extension
       if (!($fileinfo->isFile() && $fileinfo->getExtension() === 'jpg')) {
