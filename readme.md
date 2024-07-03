@@ -1,14 +1,23 @@
 # Betta
 
-_Your friendly neighborhood compiler._
+*Your friendly neighborhood compiler.*
 
 Helps you code websites efficiently.
 
 ## Version 0.0.1
 
-Betta is currently under early development. Use in production at your own risk.
+Betta is currently under early development.
+- Use in production at your own risk.
+- No documentation is provided at the moment.
 
-No documentation is provided at the moment.
+### Websites using Betta
+
+- [Stiftung Grosshaus](https://www.grosshaus.ch/)
+- [Living Decor](https://www.livingdecor.org/)
+- [Combrinck Dev.](https://combrinck.dev/)
+- [Café Friedegg](https://friedegg.ch/)
+
+
 
 ## Usage
 
@@ -44,3 +53,5 @@ yourproject/
   - You can provide a `.htaccess` file for your server.
   - Your favicon can be in the `.png` or `.ico` format (use lowercase).
   - `settings.php` contains your settings for the Betta compiler.
+
+*I am moving away from including icons and images in the repository for a website, no matter how small. I recommended to not use the icons and images folders. Instead, use a subdomain to host static assets for your website. Static hosting is easy to set up and can help boost your site's performance; most importantly it allows you to swap out images without touching the code, which is worth a lot.*
