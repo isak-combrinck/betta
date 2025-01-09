@@ -91,6 +91,7 @@ function c_compile_stylesheets() {
 	function c_set_stylesheets($exceptions) {
 		// Get external stylesheets from settings
 		$c_stylesheets = $GLOBALS['s_external_stylesheets'];
+		$css_version = $GLOBALS['css_version'];
 
 		$c_stylesheets = array_merge($c_stylesheets, c_copy_files('css', '../src/css/'));
 
@@ -105,7 +106,7 @@ function c_compile_stylesheets() {
 				if ($i == 0) {
 					$output .= '<link rel="stylesheet" href="'.$stylesheet.'">';
 				} else {
-					$output .= "\n\t\t".'<link rel="stylesheet" href="'.$stylesheet.'">';
+					$output .= "\n\t\t".'<link rel="stylesheet" href="'.$stylesheet.'?v='.$css_version.'">';
 				}
 				$i++;
 			}
