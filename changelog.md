@@ -17,6 +17,7 @@ Labels used are:
 
 ### Added
 - Ability to define custom file for footer.
+- Ability to define a version number for CSS files.
 
 ### Removed
 - Built in libraries.
