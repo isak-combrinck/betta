@@ -21,3 +21,4 @@ Labels used are:
 
 ### Removed
 - Built in libraries.
+- Default font imports, you can now import your fonts as an external stylesheet.

@@ -111,8 +111,15 @@ function c_compile_stylesheets() {
 				$i++;
 			}
 		}
-		
-		return $output;
+
+		# Check if we are importing stylesheets (fonts) from Google.
+		if (str_contains($output, 'google')) {
+			# Preconnect to speed up loading. 
+			return '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n\t\t" .
+    		'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n\t\t" . $output;
+		} else {
+			return $output;
+		}
 	}
 
 	$GLOBALS['link_stylesheets'] = c_set_stylesheets($GLOBALS['s_stylesheet_exceptions']);
