@@ -19,6 +19,9 @@ Labels used are:
 - Ability to define custom file for footer.
 - Ability to define a version number for CSS files.
 
+### Changed
+- Colors to dark mode.
+
 ### Removed
 - Built in libraries.
 - Default font imports, you can now import your fonts as an external stylesheet.

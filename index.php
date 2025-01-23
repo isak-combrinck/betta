@@ -21,33 +21,35 @@
 	<style>
 		body {
 			margin: 0;
-      font-family: monospace, sans-serif;
+      		font-family: monospace, sans-serif;
+			background: #000000;
+			color: #D2D3D9;
 		}
 
 		div, article {
 			box-sizing: border-box;
 		}
 
-    img {
-      width: 10rem;
-      height: 10rem;
-      border-radius: 50%;
-      border: 3px solid #000000;
-      animation: 1.2s ease-out 0s 1 load;
-      -webkit-user-select: none;
+		img {
+			width: 10rem;
+			height: 10rem;
+			border-radius: 50%;
+			border: 3px solid #D2D3D9;
+			animation: 1.2s ease-out 0s 1 load;
+			-webkit-user-select: none;
 			-moz-user-select: none;
 			-ms-user-select: none;
 			user-select: none;
-    }
+		}
 
 		/*---------------------------------------
 			Typography
 		---------------------------------------*/
-    p {
-      max-width: 30rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
+		p {
+			max-width: 30rem;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
 		/*---------------------------------------
 			Custom Classes
@@ -56,26 +58,26 @@
 			text-align: center;
 		}
 
-    /*---------------------------------------
+    	/*---------------------------------------
 			Animation
 		---------------------------------------*/
-    @keyframes load {
-      0% {
-      transform: rotateZ(0deg);
-      opacity: 0;
-      }
-      40% {
-        transform: rotateZ(20deg);
-        opacity: 0.2;
-      }
-      80% {
-        transform: rotateZ(-15deg);
-        opacity: 0.6;
-      }
-      100% {
-        transform: rotateZ(0deg);
-      }
-    }
+		@keyframes load {
+		0% {
+			transform: rotateZ(0deg);
+			opacity: 0;
+		}
+		40% {
+			transform: rotateZ(20deg);
+			opacity: 0.2;
+		}
+		80% {
+			transform: rotateZ(-15deg);
+			opacity: 0.6;
+		}
+		100% {
+			transform: rotateZ(0deg);
+		}
+		}
 	</style>
 
 	<body>
